@@ -2,6 +2,7 @@ import e from "express";
 import connectedDB from "./server/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import carsRoutes from "./routes/carsRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js"
 import dotenv from "dotenv";
 dotenv.config();
 connectedDB();
@@ -14,6 +15,7 @@ app.use(e.urlencoded({ extended: true }));
 
 app.use("/api", userRoutes);
 app.use("/api", carsRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.listen(port, () => {
   console.log(`app running on port ${port}`);
