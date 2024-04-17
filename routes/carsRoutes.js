@@ -1,7 +1,8 @@
 import e from "express";
-import { cars } from "../controllers/carsController.js";
+import { cars, findCar } from "../controllers/carsController.js";
 const router = e.Router();
 
-router.get("/cars", cars);
+router.get("/", cars);
+router.get("/:carId", findCar)
 
 export default router;
